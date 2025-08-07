@@ -1,0 +1,48 @@
+name: Deploy FastAPI to Azure Web App
+
+on:
+  push:
+    branches:
+      - main  # Adjust if your deployment branch is different
+    paths:
+     - 'backend/**'
+    
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 'Checkout GitHub Action'
+        uses: actions/checkout@v4
+
+      - name: 'Set up Python'
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: 'Install dependencies'
+        run: |
+          cd backend
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: 'run the models'
+        run: |
+          cd backend
+          python MaximumPrice.py
+          python LiveableAreaModel.py
+          python SuburbModel.py
+
+      - name: 'Deploy to Azure WebApp'
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: 'HousingPredictionBackend'
+          publish-profile: ${{ secrets.BACKEND }}
+          package: './backend'
+
+      
+      
+      
+
+      

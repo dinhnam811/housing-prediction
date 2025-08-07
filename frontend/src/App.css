@@ -1,0 +1,62 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Style for dynamically generated suburb list */
+.suburb-list-item {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 8px;
+  background-color: #f9f9f9;
+}
+
+/* Align suburb list text */
+.suburb-list-item-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/* Altering height of Chart */
+.chart-container {
+  position: relative;
+  width: 100%; 
+  height: 70vh;
+  padding: 0;
+}

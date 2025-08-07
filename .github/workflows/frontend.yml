@@ -1,0 +1,42 @@
+name: Deploy React Frontend to Azure Web App
+
+on:
+  push:
+    branches:
+      - main  # Adjust if your deployment branch is different
+    paths:
+     - 'frontend/**'
+    
+
+
+jobs:
+  deploy-frontend:
+    runs-on: ubuntu-latest
+    
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        working-directory: ./frontend
+        run: npm install
+
+      - name: Build the frontend
+        working-directory: ./frontend
+        run: npm run build
+    
+
+        
+      - name: Deploy to Azure App Service
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: HousingPredictionFrontend  # Make sure this matches the frontend App Service name
+          slot-name: 'production'
+          publish-profile: ${{ secrets.FRONTEND }}
+          package: ./frontend/build
