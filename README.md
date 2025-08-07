@@ -21,6 +21,6 @@ Our solution uses historical job-related data from different fields (IT, Healthc
 
 ##  Demo Videos
 
--  [Team demo – full website walkthrough]: https://www.youtube.com/watch?v=xVp6rO1vhPk  
--  [My page – AreaLivability module explained]: https://www.youtube.com/watch?v=VZoMEsogU8Q
+-  **Team demo – full website walkthrough:** https://www.youtube.com/watch?v=xVp6rO1vhPk  
+-  **My page – AreaLivability module explained:** https://www.youtube.com/watch?v=VZoMEsogU8Q
 
